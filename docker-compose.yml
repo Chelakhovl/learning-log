@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: gunicorn --chdir learning_log --bind :8000 learning_log.wsgi:application
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
